@@ -51,9 +51,6 @@ class main_window(QtWidgets.QMainWindow):
         else:
             self.ui.save_PushButton.setEnabled(True)
 
-    # this controls the default display on the groups_comboBox
-    # def groups_comboBox_default():
-
 
     def add_task_to_db(self):
         self.start_date = self.ui.start_dateEdit.date().toPyDate()
@@ -65,7 +62,12 @@ class main_window(QtWidgets.QMainWindow):
         #inserts a new task into the task database
         self.new_task = task(self.start_date, self.start_time, self.end_date, self.end_time, self.task_description, self.group) 
         # clears the text input after the user clicks the save button
-        self.ui.new_task_TextEdit.clear() 
+        self.ui.new_task_TextEdit.clear()
+        self.ui.allTasks_listWidget.addItem(self.task_description)
+        # self.ls = ["one", "two", "three"]
+        # self.ui.allTasks_listWidget.addItems(self.ls)
+        # self.ui.gridLayout.addWidget(self.ui.allTasks_listWidget, 1, 0, 1, 2)
+        # self.gridLayout.addWidget(self.listwidget, 1, 0, 1, 2)
 
 
             
